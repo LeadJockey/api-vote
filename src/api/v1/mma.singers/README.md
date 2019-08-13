@@ -110,6 +110,18 @@
 }
 ```
 
+### vote singer
+
+- method : PATCH
+- request : http://172.28.31.239:3000/api/v1/singers/vote/{id}
+- response
+
+```json
+{
+  "msg": "update hit success"
+}
+```
+
 ## Model Specs
 
 ### id

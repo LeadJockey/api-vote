@@ -1,0 +1,64 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+/* common */
+.thumb_img {
+  display: block;
+  width: 100%;
+}
+.screen_out {
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+/* app */
+#app {
+  width: 600px;
+  margin: 14px auto;
+}
+.list_singer li {
+  overflow: hidden;
+  border: 1px solid #efefef;
+  border-radius: 20px;
+  -webkit-box-shadow: 3px 4px 2px 0px rgba(33, 37, 42, 0.02);
+  box-shadow: 3px 4px 2px 0px rgba(33, 37, 42, 0.02);
+}
+.list_singer li + li {
+  margin-top: 10px;
+}
+.list_singer .singer_thumb {
+  float: left;
+  width: 120px;
+  height: 120px;
+}
+.list_singer .singer_info {
+  float: left;
+  width: calc(100% - 120px);
+  height: 120px;
+  padding: 34px 20px;
+}
+.list_singer .singer_info .txt_name {
+  overflow: hidden;
+  font-size: 14px;
+  color: #777;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.list_singer .singer_info .txt_song {
+  overflow: hidden;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #444;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
