@@ -154,7 +154,7 @@
 
 ### img
 
-> - desc : 가수 이름
+> - desc : 가수/노래 사진
 > - type : String (img src)
 > - required : false
 > - default : ""
