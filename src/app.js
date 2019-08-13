@@ -10,8 +10,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'))
 app.use(cors())
 
-app.get('/', (req, res) => res.json({ msg: 'hello rest api' }))
 app.use('/api/v1/singers', require('./api/v1/mma.singers'))
+app.get('*', (req, res) => res.json({ msg: 'hello rest api', moveTo: 'http://172.28.31.239:3000/api/v1/singers' }))
 
 app.listen(PORT, () => {
   console.log(`server started: listening on port : ${PORT}`)
