@@ -17,3 +17,7 @@ exports.delete = (req, res) => {
   const singer = model.deleteOne(req.params.id)
   return singer ? res.status(500).json({ msg: 'delete error' }) : res.status(200).json({ msg: 'delete success' })
 }
+exports.vote = (req, res) => {
+  const isVoted = model.updateHit(req.params.id)
+  return isVoted ? res.status(200).json({ msg: 'update hit success' }) : res.status(500).json({ msg: 'update hit error' })
+}

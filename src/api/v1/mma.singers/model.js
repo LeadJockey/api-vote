@@ -21,7 +21,7 @@ exports.createOne = ({ name, img, song }) => {
   singers.push(model)
   return this.findOne(_id)
 }
-exports.updateOne = ( id, {name, img, song, hit }) => {
+exports.updateOne = (id, { name, img, song, hit }) => {
   const now = new Date()
   singers = singers.map(singer => {
     if (singer.id !== id) return singer
@@ -34,6 +34,18 @@ exports.updateOne = ( id, {name, img, song, hit }) => {
     return { ...singer, ...model }
   })
   return this.findOne(id)
+}
+exports.updateHit = id => {
+  const now = new Date()
+  singers = singers.map(singer => {
+    if (singer.id !== id) return singer
+    const model = {
+      updatedAt: dateFormat(now),
+      hit: singer.hit + 1
+    }
+    return { ...singer, ...model }
+  })
+  return true
 }
 exports.deleteOne = singerId => {
   singers = singers.filter(({ id }) => id !== singerId)
