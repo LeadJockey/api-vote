@@ -1,12 +1,11 @@
 'use strict'
 
-var BASE_URL = 'http://172.28.31.239:3000/api/v1'
+const BASE_URL = 'http://172.28.31.239:3000/api/v1'
 
-var $app = document.getElementById('app')
+const $app = document.getElementById('app')
 
-var state = {
-  singers: [],
-  singer: {}
+let state = {
+  singers: []
 }
 
 getSingers()
@@ -16,10 +15,10 @@ function getSingers() {
     .then(res => res.json())
     .then(data => setState({ singers: data }))
 }
-function getSinger(id) {
-  fetch(BASE_URL + '/singers/' + id, { method: 'GET' })
+function voteSinger(id) {
+  fetch(BASE_URL + '/singers/vote/' + id, { method: 'PATCH' })
     .then(res => res.json())
-    .then(data => setState({ singer: data }))
+    .then(() => getSingers())
 }
 function setState(newState) {
   state = { ...state, ...newState }
@@ -34,7 +33,7 @@ function renderSingers(data) {
   `
 }
 function renderSinger(data) {
-  return `<li>
+  return `<li data-key="${data.id}">
     <div class="singer_thumb">
       <img src="${data.img}" class="thumb_img">
     </div>
@@ -43,12 +42,16 @@ function renderSinger(data) {
       <dd class="txt_song">${data.song}</dd>
       <dt class="screen_out">가수 이름</dt>
       <dd class="txt_name">${data.name}</dd>
+      <dt class="screen_out">투표 수</dt>
+      <dd class="txt_name">${data.hit}</dd>
     </dl>
   </li>`
 }
 function bindEvents() {
   $app.querySelector('.list_singer').addEventListener('mouseover', function(e) {
-    if(e.target.nodeName !== 'LI') return
-    console.log('dd')
+    if (e.target.nodeName !== 'LI') return
+    const id = e.target.getAttribute('data-key')
+    if (!id) return
+    voteSinger(id)
   })
 }
