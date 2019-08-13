@@ -1,0 +1,39 @@
+{
+  "name": "api-vote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeadJockey/api-vote.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeadJockey/api-vote/issues"
+  },
+  "homepage": "https://github.com/LeadJockey/api-vote#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dateformat": "^3.0.3",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
+    "uuid": "^3.3.2"
+  },
+  "prettier": {
+    "printWidth": 150,
+    "semi": false,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "tabs": true,
+    "[javascript]": {
+      "editor.formatOnSave": true
+    }
+  }
+}
