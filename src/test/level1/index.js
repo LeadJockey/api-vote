@@ -22,10 +22,10 @@ function voteSinger(id) {
 }
 function setState(newState) {
   state = { ...state, ...newState }
-  renderSingers(state.singers)
+  render(state.singers)
   bindEvents()
 }
-function renderSingers(data) {
+function render(data) {
   $app.innerHTML = `
     <ul class="list_singer">
       ${data.map(singer => renderSinger(singer)).join('')}
@@ -43,14 +43,15 @@ function renderSinger(data) {
       <dt class="screen_out">가수 이름</dt>
       <dd class="txt_name">${data.name}</dd>
       <dt class="screen_out">투표 수</dt>
-      <dd class="txt_name">${data.hit}</dd>
+      <dd class="txt_hit">${data.hit}</dd>
     </dl>
   </li>`
 }
 function bindEvents() {
   $app.querySelector('.list_singer').addEventListener('mouseover', function(e) {
-    if (e.target.nodeName !== 'LI') return
-    const id = e.target.getAttribute('data-key')
+    const $li = e.target.closest('li')
+    if (!$li) return
+    const id = $li.getAttribute('data-key')
     if (!id) return
     voteSinger(id)
   })
