@@ -1,5 +1,11 @@
 # api-vote
 
+* npm run start 서버시작
+* config.js 에 IP 및 PORT 수정가능
+
+
+
+
 ## lv1
 
 * 목표 : api 매핑을 통해서 서버와 클라이언트 사이의 비동기 통신에 대해 이해한다

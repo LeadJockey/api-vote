@@ -1,6 +1,6 @@
 'use strict'
 
-const BASE_URL = 'http://172.28.31.239:3000/api/v1'
+const BASE_URL = 'http://172.28.31.239:3000/api/v1'// 자신의 IP 활용
 
 const $app = document.getElementById('app')
 

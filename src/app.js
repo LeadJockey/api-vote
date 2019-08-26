@@ -1,5 +1,4 @@
-const PORT = 3000
-
+const conf = require('./config')
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
@@ -11,8 +10,8 @@ app.use(logger('dev'))
 app.use(cors())
 
 app.use('/api/v1/singers', require('./api/v1/mma.singers'))
-app.get('*', (req, res) => res.json({ msg: 'hello rest api', moveTo: 'http://172.28.31.239:3000/api/v1/singers' }))
+app.get('*', (req, res) => res.json({ msg: 'hello rest api', moveTo: `http://${conf.IP}:${conf.PORT}/api/v1/singers` }))
 
-app.listen(PORT, () => {
-  console.log(`server started: listening on port : ${PORT}`)
+app.listen(conf.PORT, () => {
+  console.log(`server started: listening on port : ${conf.PORT}`)
 })
