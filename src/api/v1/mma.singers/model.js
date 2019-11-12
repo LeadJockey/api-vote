@@ -51,5 +51,11 @@ exports.deleteOne = singerId => {
   singers = singers.filter(({ id }) => id !== singerId)
   return this.findOne(singerId)
 }
+exports.multipleDelete = willDeleteSingers => {
+  const beforeLength = singers.length
+  const deleteLength = willDeleteSingers.length
+  singers = singers.filter(({ id }) => willDeleteSingers.indexOf(id) < 0)
+  return beforeLength - deleteLength === singers.length
+}
 
 defaultSingers.forEach(body => this.createOne({ ...body }))

@@ -17,6 +17,10 @@ exports.delete = (req, res) => {
   const singer = model.deleteOne(req.params.id)
   return singer ? res.status(500).json({ msg: 'delete error' }) : res.status(200).json({ msg: 'delete success' })
 }
+exports.multipleDelete = (req, res)=>{
+  const willDeleteSingers = model.multipleDelete(req.body.willDeleteSingers)
+  return willDeleteSingers ? res.status(200).json({msg:'multiple delete success'}) : res.status(500).json({msg:'multiple delete error'})
+}
 exports.vote = (req, res) => {
   const isVoted = model.updateHit(req.params.id)
   return isVoted ? res.status(200).json({ msg: 'update hit success' }) : res.status(500).json({ msg: 'update hit error' })
