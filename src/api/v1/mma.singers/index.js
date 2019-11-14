@@ -5,7 +5,7 @@ router.get('/', controller.showList)
 router.get('/:id', controller.showOne)
 router.post('/', controller.create)
 router.patch('/:id', controller.update)
-router.patch('/vote/:id', controller.vote)
+router.patch('/hit/:id', controller.vote)
 router.delete('/:id', controller.delete)
 router.delete('/', controller.multipleDelete)
 

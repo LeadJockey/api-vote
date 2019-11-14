@@ -21,7 +21,7 @@ exports.createOne = ({ name, img, song }) => {
   singers.push(model)
   return this.findOne(_id)
 }
-exports.updateOne = (id, { name, img, song, hit }) => {
+exports.updateOne = (id, { name, img, song }) => {
   const now = new Date()
   singers = singers.map(singer => {
     if (singer.id !== id) return singer
@@ -56,6 +56,11 @@ exports.multipleDelete = willDeleteSingers => {
   const deleteLength = willDeleteSingers.length
   singers = singers.filter(({ id }) => willDeleteSingers.indexOf(id) < 0)
   return beforeLength - deleteLength === singers.length
+}
+
+// with crawler api
+exports.updateAll = crawledData => {
+  singers = crawledData
 }
 
 defaultSingers.forEach(body => this.createOne({ ...body }))

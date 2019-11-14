@@ -19,9 +19,14 @@
   },
   "homepage": "https://github.com/LeadJockey/api-vote#readme",
   "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
+    "crawler": "^1.2.1",
     "dateformat": "^3.0.3",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "iconv-lite": "^0.5.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "uuid": "^3.3.2"
